@@ -1,12 +1,18 @@
-# 简介
- - rk_ssd_demo 是3399pro上如何调用NPU的demo，该demo的基础模型是ssd-mobilenetv1
+# rk_ssd_demo
 
-# 使用说明
- - 可以使用android studio编译该工程
- - ssd.rknn是使用rknn toolkit将ssd-mobilenetv1.pb转换而来，具体转换方法参考rknn toolkit的参考文档
+## Introduction
 
-# 代码说明
-## 代码分为三大部分：
- - JAVA: com.rockchip.gpadc.ssddemo: 读取camera输入，并调用jni进行inference，请将结果显示出来
- - JAVA: com.rockchip.gdapc.demo.glhelper: 封装的opengl处理函数，用于2D纹理渲染,格式转换等，主要目的是降低CPU使用率．
- - JNI: 调用rknn_api进行实际inference
+- rk_ssd_demo is a dome of how to use NPU on 3399pro, the model of demo based on ssd-mobilenetv1
+
+## Compilation
+
+- Open the project file by Android Studio, build and generate apk (need NDK support, verified on android-ndk-r16b)
+- ssd.rknn is converted from ssd-mobilenetv1.pb using RKNN Toolkit，refer to the [reference](<https://dl.radxa.com/rockpin10/docs/sw/rknn-toolkit/Rockchip_User_Guide_RKNN_Toolkit_V1.3.0_EN.pdf>) of RKNN Toolkit for conversion methods
+
+## Code Structure
+
+The code has three main parts：
+
+- JAVA: com.rockchip.gpadc.ssddemo: Read the camera input, call jin for inference, and display the results
+- JAVA: com.rockchip.gdapc.demo.glhelper: Wrapper of opengl function, used for 2D rendering, format conversion, etc., the main purpose is to reduce CPU usage
+- JNI: Call rknn_api for the actual inference
